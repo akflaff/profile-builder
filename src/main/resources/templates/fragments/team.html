@@ -1,0 +1,69 @@
+<div class="content">
+    <div class="wrapper">
+        <div id="close-overlay" class="close-icon material-symbols-outlined" onclick="closeOverlay()">
+            cancel
+        </div>
+
+        <div id="team-name" class="heading" th:text="${team.name}"></div>
+
+        <div id="position">
+            <div class="sub-heading"  th:if="${team.isTenuredPosition()}" id="position-tenure" th:text="|${team.position} - ${team.tenure}|"></div>
+        </div>
+
+        <div class="section" id="industry-tags">
+            <span class="label">Industry Tags</span>
+            <span th:text="${team.tags}"></span>
+        </div>
+
+        <div class="section" id="primary-location">
+            <span class="label">Primary Location</span>
+            <span th:text="${team.location}"></span>
+        </div>
+
+        <div class="section" id="percent-remote">
+            <span class="label">Percent Remote</span>
+            <span th:text="|${team.percentRemote}%|"></span>
+        </div>
+
+
+        <div th:if="${team.accomplishmentList != null && !team.accomplishmentList.isEmpty()}"
+             class="section" id="accomplishments">
+            <div class="label">Accomplishments</div>
+                <ul>
+                    <li th:each="acc, s : ${team.accomplishmentList}"
+                         th:id="|acc${s.index}|"
+                         th:text="${acc}">
+                    </li>
+                </ul>
+        </div>
+
+        <div th:if="${team.notableList != null && !team.notableList.isEmpty()}"
+                class="section" id="notable">
+            <div class="label">Notable Information</div>
+            <ul>
+                <li th:each="note, s : ${team.notableList}"
+                    th:id="|note${s.index}|"
+                    th:text="${note}">
+                </li>
+            </ul>
+        </div>
+
+        <div class="section" id="references">
+            <span class="label">Reference Sentiment</span>
+            <div id="legend" class="legend">
+                <svg width="100%" height="50" viewBox="0,0,360,50" style="overflow: visible;"><image x="0" y="18" width="360" height="10" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAABCAYAAAAxWXB3AAAA9UlEQVQ4T21RCxaDMAij7i67+Y6pLIGA1Of22nwIteL62dePw2xba9frWHu98+mvV121B36ol3qIWO2R87w3v7yj64a+6i+0OC8zs15+4KgZslnjS7NHvZ3JeucGz6HksLL/1uXfqOf0wJ5DHroGGgh/0xr4Up41cqG3Ts+jxmXm3MDd8JMm9xVO+N5/s4vcy4ECDw/7FT695NiTRw+9O1OcWL3t6aw7g4TOiXN76Tmb53aGxl11t9TpndiqNnOn8jtmfnrRc8EHpi8+c7MePpY83qN43iV14tDil/qJfG7MOLjeCVg6MOr4ZsoQ43s9cqVnrbw/3FxXr3y5ERUAAAAASUVORK5CYII="></image><g transform="translate(0,28)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle"><g class="tick" opacity="1" transform="translate(0,0)"><line stroke="currentColor" y2="6" y1="-10"></line><text fill="currentColor" y="9" dy="0.71em">−1.0</text></g><g class="tick" opacity="1" transform="translate(90,0)"><line stroke="currentColor" y2="6" y1="-10"></line><text fill="currentColor" y="9" dy="0.71em">−0.5</text></g><g class="tick" opacity="1" transform="translate(180,0)"><line stroke="currentColor" y2="6" y1="-10"></line><text fill="currentColor" y="9" dy="0.71em">0.0</text></g><g class="tick" opacity="1" transform="translate(270,0)"><line stroke="currentColor" y2="6" y1="-10"></line><text fill="currentColor" y="9" dy="0.71em">0.5</text></g><g class="tick" opacity="1" transform="translate(360,0)"><line stroke="currentColor" y2="6" y1="-10"></line><text fill="currentColor" y="9" dy="0.71em">1.0</text></g><text x="0" y="-16" fill="currentColor" text-anchor="start" font-weight="bold" class="title">Sentiment Score</text></g></svg>
+                <div class="info">
+                    <span class="material-icons">psychology_alt</span>
+                    <span class="info-text">
+                        Sentiment analysis is a process we utilize to determine whether
+                        the text in a reference is positive, negative, neutral, or mixed</br></br>
+                        -1 is the most negative score possible</br>
+                        1 is the most positive score possible</br>
+                        ~0 is either neutral or mixed</br>
+                    </span>
+                </div>
+            </div>
+            <div class="team-chart-wrap"><svg id="team-relationships"></svg></div>
+        </div>
+    </div>
+</div>

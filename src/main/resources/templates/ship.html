@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AK Ship</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link href="/css/ship.css" rel="stylesheet" type="text/css">
+  <link href="/css/water.css" rel="stylesheet" type="text/css">
+  <link href="/css/clouds.css" rel="stylesheet" type="text/css">
+  <link href="/css/sails.css" rel="stylesheet" type="text/css">
+  <link href="/css/overlay.css" rel="stylesheet" type="text/css">
+  <link href="/css/demographics.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <script type="text/javascript" src="/profile.js"></script>
+  <script src="/javascript/d3.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/topojson-client@3"></script>
+  <script type="text/javascript" src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+  <script type="text/javascript" src="/javascript/ship.js"></script>
+  <script type="text/javascript" src="/javascript/demographics.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.3.122/pdf.min.js"></script>
+  <script src="/javascript/WebViewer/lib/webviewer.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="error-if-unless">
+
+  <div id="page-content" class="ascent animate-ascent">
+    <div id="background-wrap" class="elements show-elements">
+      <span id="map" class="point map hide-map" onclick="viewDemographics()">
+          <img src="../img/map.png" alt="blue world map">
+        </span>
+      <span id="clouds">
+        <span id="cloud1" class="part point cloud cloud1" onclick="partClouds()">
+          <img src="../img/cloud1.png" alt="light blue watercolor cloud">
+        </span>
+        <span id="cloud2" class="part point cloud cloud2" onclick="partClouds()">
+          <img src="../img/cloud2.png" alt="blue watercolor cloud">
+        </span>
+        <span id="cloud3" class="part point cloud cloud3" onclick="partClouds()">
+          <img src="../img/cloud3.png" alt="medium blue watercolor cloud">
+        </span>
+        <span id="cloud4" class="cloud cloud4">
+          <img src="../img/cloud4.png" alt="light grey watercolor cloud">
+        </span>
+        <span id="cloud5" class="cloud cloud5">
+          <img src="../img/cloud5.png" alt="light blue watercolor cloud">
+        </span>
+        <span id="cloud6" class="cloud cloud6">
+          <img src="../img/cloud6.png" alt="medium blue watercolor cloud">
+        </span>
+        <span id="cloud7" class="cloud cloud7">
+          <img src="../img/cloud1.png" alt="blue watercolor cloud">
+        </span>
+        <span id="cloud8" class="cloud cloud8">
+          <img src="../img/cloud8.png" alt="blue watercolor cloud">
+        </span>
+        <span id="cloud9" class="part point cloud cloud9" onclick="partClouds()">
+          <img src="../img/cloud9.png" alt="light grey watercolor cloud">
+        </span>
+      </span>
+
+      <span id="ship" class="whole-ship">
+        <span class="ship flag flag1">
+          <img src="../img/flag1.png" alt="blue and black flag on top of mast">
+        </span>
+        <span class="ship flag flag2">
+          <img src="../img/flag2.png" alt="blue and black flag on top of mast">
+        </span>
+        <span class="ship flag flag3">
+          <img src="../img/flag3.png" alt="blue and black flag on top of mast">
+        </span>
+        <span class="ship ship-part long-ropes">
+          <img src="../img/long-ropes.png" alt="long ropes connecting roost to bow">
+        </span>
+        <span class="ship ship-part long-ropes-back">
+          <img src="../img/long-ropes.png" alt="long ropes connecting roost to bow">
+        </span>
+        <span class="ship ship-part ship-mast">
+          <img src="../img/ship-mast.png" alt="masts for a ship">
+        </span>
+        <span class="ship ship-part ship-base">
+          <img src="../img/ship-base.png" alt="blue/brown/black watercolor ship hull">
+        </span>
+        <span id="captain" class="ship point captain" onclick="viewBio()">
+          <img src="../img/goldwheel.png" alt="brown watercolor ship wheel">
+        </span>
+        <span id="sails">
+          <div class="ship sail sail1 non-clickable-sail">
+            <img src="../img/sail1.png" alt="white and blue watercolor sail">
+          </div>
+          <div class="ship point sail sail2 clickable-sail" onclick="viewTeam(2)">
+            <div class="passages">PASSAGES</div>
+            <img src="../img/sail2.png" alt="white and blue watercolor sail">
+          </div>
+          <div class="ship point sail sail3 clickable-sail" onclick="viewTeam(3)">
+            <div class="bluepillar">BLUE PILLAR</div>
+            <img src="../img/sail3.png" alt="white and blue watercolor sail">
+          </div>
+          <div class="ship point sail sail4 clickable-sail" onclick="viewTeam(4)">
+            <div class="amazon">AMAZON</div>
+            <img src="../img/sail4.png" alt="white and blue watercolor sail">
+          </div>
+          <div class="ship sail sail5 non-clickable-sail">
+            <img src="../img/sail5.png" alt="white and blue watercolor sail">
+          </div>
+          <div class="ship point sail sail6 clickable-sail" onclick="viewTeam(6)">
+            <div class="cerner">CERNER</div>
+            <img src="../img/sail6.png" alt="white and blue watercolor sail">
+          </div>
+          <div class="ship point sail sail7 clickable-sail" onclick="viewTeam(7)">
+            <div class="forum">FORUM</div>
+            <img src="../img/sail7.png" alt="white and blue watercolor sail">
+          </div>
+          <div class="ship point sail sail8 clickable-sail" onclick="viewTeam(8)">
+            <div class="personal">PERSONAL</div>
+            <img src="../img/sail8.png" alt="white and blue watercolor sail">
+          </div>
+          <div class="ship sail sail9 non-clickable-sail">
+            <img src="../img/sail9.png" alt="white and blue watercolor sail">
+          </div>
+          <div class="ship sail sail10 non-clickable-sail">
+            <img src="../img/sail10.png" alt="white and blue watercolor sail">
+          </div>
+          <div class="ship point sail sail11 clickable-sail" onclick="viewTeam(11)">
+            <div class="campfire">CAMP FIRE</div>
+            <img src="../img/sail11.png" alt="white and blue watercolor sail">
+          </div>
+        </span>
+     </span>
+      <span id="water">
+        <span class="w water1 animate-front-water">
+          <img src="../img/water1.png" alt="light blue semi-transparent moving water">
+        </span>
+        <span class="w water water2 animate-water-front">
+          <img src="../img/water2.png" alt="medium blue semi-transparent moving water">
+        </span>
+        <span class="w water water3 animate-water-front">
+          <img src="../img/water3.png" alt="soft blue semi-transparent moving water">
+        </span>
+        <span class="w water water4 animate-water-front">
+          <img src="../img/water4.png" alt="turquoise semi-transparent moving water">
+        </span>
+        <span class="w water water5 animate-water-middle">
+          <img src="../img/water5.png" alt="light green semi-transparent moving water">
+        </span>
+        <span class="w water water6 animate-water-middle">
+          <img src="../img/water6.png" alt="medium blue semi-transparent moving water">
+        </span>
+        <span class="w water water7 animate-water-middle">
+          <img src="../img/water7.png" alt="light blue semi-transparent moving water">
+        </span>
+        <span class="w water water8 animate-water-back">
+          <img src="../img/water8.png" alt="blue semi-transparent moving water">
+        </span>
+        <span class="w water water9 animate-water-back">
+          <img src="../img/water4.png" alt="blue semi-transparent moving water">
+        </span>
+        <span class="w water water10 animate-water-back">
+          <img src="../img/water5.png" alt="blue semi-transparent moving water">
+        </span>
+      </span>
+      <span id="overlay"></span>
+      <div id="viewer"></div>
+      <span id="credits">
+        <a href="/credits.html">
+          <div id="nav" class="nav right-nav point">
+              <div class="r-nav"><img src="../img/right-small.png" alt="green and blue watercolor seaweed"></div>
+              <div class="r-nav"><img src="../img/right-small.png" alt="green and blue watercolor seaweed"></div>
+              <div class="r-nav"><img src="../img/right-small.png" alt="green and blue watercolor seaweed"></div>
+              <div class="r-nav"><img src="../img/right-small.png" alt="green and blue watercolor seaweed"></div>
+              <div class="r-nav"><img src="../img/right-small.png" alt="green and blue watercolor seaweed"></div>
+              <div class="r-nav"><img src="../img/right-small.png" alt="green and blue watercolor seaweed"></div>
+          </div>
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+
+</body></html>

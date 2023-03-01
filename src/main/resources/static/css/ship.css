@@ -1,0 +1,231 @@
+/********************* Ascend ******************/
+.elements {
+	opacity: 0;
+}
+.ascent {
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+}
+@keyframes animate-ascent {
+	0% {
+		background: #090979FF;
+	}
+	50% {
+		background: #00D4FFFF;
+	}
+	75% {
+		background: #ffffff;
+	}
+	100% {
+		pointer-events: unset;
+	}
+}
+@keyframes show-elements {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.animate-ascent {
+	animation: animate-ascent 4s linear 1 forwards;
+}
+.show-elements {
+	animation: show-elements 4s linear 1 forwards;
+}
+
+/********************* Background ******************/
+#background-wrap {
+	font-family: Lexend, serif;
+	background-color: #90e4fc;
+	color: white;
+	font-weight: 400;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	z-index: -1;
+	position: fixed;
+}
+
+/********************* Ship ******************/
+
+.whole-ship {
+	bottom: 33vh;
+	position: absolute;
+	width: 75vw;
+	height: 80vh;
+	left: 0vh;
+}
+@keyframes animate-ship {
+	0% {
+		transform: translateY(0.926vh);
+	}
+}
+.ship-part {
+	animation:
+			animate-ship 2s ease-in-out infinite alternate;
+}
+@keyframes animate-flag {
+	0% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(.97);
+	}
+}
+.flag {
+	animation:
+			animate-flag 6s ease-in-out infinite alternate,
+			animate-ship 2s ease-in-out infinite alternate;
+}
+.flag1 {
+	position: absolute;
+	left: 40.6vw;
+	bottom: 59.815vh;
+	width: 7.188vw;
+	height: 2.778vh;
+	animation-delay: 0s, 0s;
+	z-index: 16;
+}
+.flag2 {
+	position: absolute;
+	left: 23.031vw;
+	bottom: 62vh;
+	width: 8.021vw;
+	height: 2.685vh;
+	animation-delay: .4s, 0s;
+	z-index: 15;
+}
+.flag3 {
+	position: absolute;
+	left: 14vw;
+	bottom: 50.926vh;
+	width: 5.156vw;
+	height: 1.574vh;
+	animation-delay: .75s, 0s;
+	z-index: 14;
+}
+.long-ropes {
+	position: absolute;
+	left: 31.229vw;
+	width: 20.99vw;
+	height: 43.093vh;
+	pointer-events: none;
+	bottom: 9.463vh;
+	z-index: 88;
+}
+.long-ropes-back {
+	position: absolute;
+	left: 19.229vw;
+	width: 17.99vw;
+	height: 38.093vh;
+	pointer-events: none;
+	bottom: 5.463vh;
+	z-index: 84;
+}
+.ship-mast {
+	position: absolute;
+	left: 3.396vw;
+	bottom: -9vh;
+	width: 73.469vw;
+	height: 75vh;
+	pointer-events: none;
+	z-index: 7;
+}
+.ship-base {
+	position: absolute;
+	width: 80.833vw;
+	height: 92.222vh;
+	pointer-events: none;
+	z-index: 95;
+}
+
+/********************* Captain ******************/
+@keyframes animate-captain {
+	100% {
+		transform: scale(1);
+		opacity: 1;
+		pointer-events: unset;
+		bottom: 2vh;
+	}
+}
+.animate-captain {
+	animation:
+			animate-captain 2.5s linear 1,
+			animate-ship 2s ease-in-out infinite alternate;
+	animation-fill-mode: forwards;
+}
+.captain {
+	position: absolute;
+	left: 43.833vw;
+	bottom: 2.667vh;
+	width: 14.479vw;
+	height: 20.926vh;
+	transform: scale(0);
+	opacity: 0;
+	pointer-events: none;
+	z-index: 94;
+}
+
+/********************* Sail Ship ******************/
+@keyframes sail-ship {
+	99% {
+		opacity: 1;
+		transform: translateX(104.167vw);
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(114.583vw);
+	}
+}
+.sail-ship {
+	animation:
+			sail-ship 6s linear 1;
+	animation-fill-mode: forwards;
+}
+
+/********************* Drain Ocean ******************/
+@keyframes drain-ocean {
+	100% {
+		bottom: -40vh;
+		opacity: 0;
+	}
+}
+.drain-ocean {
+	animation:
+			drain-ocean 3s linear 1;
+	animation-fill-mode: forwards;
+}
+
+/********************* Resume ******************/
+@keyframes show-viewer {
+	100% {
+		opacity: 1;
+	}
+}
+#viewer {
+	position: absolute;
+	height: 90vh;
+	width: 70vw;
+	padding-left: 15vw;
+	padding-top: 5vh;
+	opacity: 0;
+}
+.show-viewer {
+	animation:
+			show-viewer 3s linear 1;
+	animation-fill-mode: forwards;
+}

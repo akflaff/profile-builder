@@ -1,0 +1,84 @@
+@keyframes open-overlay {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        z-index: 1000;
+        pointer-events: unset;
+    }
+}
+@keyframes close-overlay {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+        z-index: -2;
+        pointer-events: none;
+    }
+}
+
+.overlay {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;
+    background-image: url("../img/goldbackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.team-chart-wrap {
+    width: 100%;
+    position: relative;
+    display: inline-block
+}
+.bio {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;
+    background-color: white;
+}
+
+.content {
+    position: absolute;
+    width: 94%;
+    height: 93%;
+    opacity: .75;
+    background-color: white;
+    top: 3vh;
+    left: 3vw;
+    box-shadow: 0 0 1.5625em 0.625em white;
+    color: black;
+    font-weight: 600;
+    font-size: 0.875em;
+    max-height: 83vh;
+    overflow: scroll;
+}
+
+.close-overlay {
+    animation:
+            close-overlay 1.5s linear 1;
+    animation-fill-mode: forwards;
+}
+
+.open-overlay {
+    animation:
+            open-overlay 1.5s linear 1;
+    animation-fill-mode: forwards;
+}
+
+.wrapper {
+    padding: 0.781vw;
+}
+
+.pad-left {
+    padding-left: 1.042vw;
+}

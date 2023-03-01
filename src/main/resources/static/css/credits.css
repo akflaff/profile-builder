@@ -1,0 +1,446 @@
+/********** Page load transition **********/
+@keyframes animate-load {
+    0% {
+        background: #90e4fc;
+    }
+    40% {
+        background: #FCC77DFF;
+    }
+    80%{
+        background: #ffffff;
+    }
+    100% {
+        pointer-events: unset;
+    }
+}
+@keyframes show-elements {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.elements {
+    opacity: 0;
+}
+.load {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+.animate-load {
+    animation: animate-load 4s linear 1 forwards;
+}
+.show-elements {
+    animation: show-elements 4s linear 1 forwards;
+}
+
+/********************* Background ******************/
+body {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    font-family: Lexend, serif;
+    color: black;
+    font-weight: 400;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+}
+
+#background-wrap {
+    background-image: linear-gradient(
+            hsla(193, 20%, 49%, 1) 0%,
+            hsla(189, 17%, 59%, 1) 20%,
+            hsla(39, 44%, 77%, 1) 45%,
+            hsla(35, 96%, 74%, 1) 70%,
+            hsla(23, 59%, 73%, 1) 80%,
+            hsla(23, 59%, 73%, 1) 100%
+    );
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.credits {
+    text-align: center;
+}
+
+.heading {
+    font-size: 5vh;
+    line-height: 1.2;
+    left: 40.469vw;
+    top: 14.074vh;
+    z-index: 17;
+    font-weight: 300;
+    padding-top: 2.315vh;
+    color: hsla(23, 59%, 73%, 1);
+}
+
+.shout {
+    font-size: 4vh;
+    line-height: 1.5;
+    position: relative;
+    z-index: 13;
+    padding-top: 0.926vh;
+    font-weight: 600;
+    color: hsla(35, 96%, 74%, 1);
+}
+
+.whisper {
+	font-size: 1.3vh;
+	line-height: 1.5;
+	font-weight: 200;
+	color: black;
+	font-style: oblique;
+	bottom: 40vh;
+	position: absolute;
+}
+
+.sub-heading {
+    font-size: 3vh;
+    line-height: 1.1;
+    text-align: center;
+    position: relative;
+    z-index: 16;
+    font-weight: 300;
+    padding-top: 0.926vh;
+    font-family: "Castellar";
+}
+
+.label {
+    font-size: 2vh;
+    line-height: 1.5;
+    position: relative;
+    z-index: 13;
+    padding-top: 0.926vh;
+}
+
+/********** Beach background **********/
+.beach-trees-right{
+    right: 0;
+    bottom: 33vh;
+    position: absolute;
+    width: 20%;
+    height: 30vh;
+    z-index: -1;
+}
+.beach-back{
+    right: 0;
+    bottom: 31vh;
+    position: absolute;
+    height: 10vh;
+    width: 100%;
+    opacity: 1;
+    z-index: 1;
+}
+.beach-front{
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 36vh;
+    z-index: 3;
+}
+
+/********************* Sway ******************/
+@keyframes sway {
+    0% {
+        transform: skewY(-1deg) skewX(1deg);
+    }
+    100% {
+        transform: skewY(1deg);
+    }
+}
+
+.sway {
+    animation:
+            sway 3s ease-in-out infinite alternate;
+}
+
+/********************* Palm Tree, Coconut, Drink, Whale ******************/
+.coconut {
+    height:7vh;
+    width: 7vh;
+    right: 12%;
+    bottom: 80vh;
+    position: absolute;
+    z-index: 4;
+    opacity: 0;
+}
+.palm-tree {
+    height:90vh;
+    right: -5.208vw;
+    bottom: 3vh;
+    position: absolute;
+    width: 43%;
+    z-index: 7;
+}
+.whale {
+    height:11vh;
+    opacity: 0;
+    z-index: 0;
+    position: absolute;
+    width: 12vw;
+}
+.whale-tail {
+    bottom: 31vh;
+}
+.whale-head {
+    left: 7vw;
+    bottom: 31vh;
+}
+.drink {
+    height:9vh;
+    width: 10vh;
+    right: 36%;
+    bottom: -10vh;
+    position: absolute;
+    z-index: 22;
+}
+
+@keyframes move-coconut {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        transform: translateX(0%) translateY(60vh) rotate(180deg);
+    }
+    85% {
+        transform: translateX(-25vw) translateY(67.5vh) rotate(-180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-25vw) translateY(90vh) rotate(35deg);
+    }
+}
+@keyframes shake-tree {
+    100% {
+        transform: rotate(3deg) skewX(1.5deg) skewY(-.8deg);
+    }
+}
+@keyframes animate-push-drink {
+    100% {
+        bottom: 6vh;
+    }
+}
+@keyframes animate-shake-drink {
+    0% {
+        bottom: 4vh;
+        transform: rotate(-25deg) skewx(-1.5deg) skewy(.8deg);
+    }
+    100% {
+        bottom: 4vh;
+        transform: scale(1.1) rotate(25deg) skewx(1.5deg) skewy(-.8deg);
+    }
+}
+@keyframes animate-drink-drink {
+    50% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 20vh;
+        transform: scale(10);
+        height: 15vh;
+        opacity: 0;
+    }
+}
+@keyframes animate-whale-tail {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 1;
+        transform: translate(15vw, 5vh);
+    }
+    26% {
+        opacity: 1;
+    }
+    27% {
+        opacity: 0;
+    }
+}
+@keyframes animate-whale-head {
+    0% {
+        opacity: 0;
+    }
+    49% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        transform: translate(25vw, 0vh);
+    }
+    60% {
+        opacity: 1;
+        transform: translate(30vw, -5vh);
+    }
+    80% {
+        transform: translate(40vw, 2vh) skewY(15deg);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(60vw, 4vh);
+    }
+}
+
+.animate-move-coconut {
+    animation:
+            move-coconut 3s linear 1;
+    animation-fill-mode: both;
+}
+.animate-shake-tree {
+    animation:
+            shake-tree 1.5s linear 3;
+    animation-fill-mode: forwards;
+}
+.animate-push-drink {
+    animation:
+            animate-push-drink 1.5s linear 1;
+    animation-fill-mode: forwards;
+}
+.animate-shake-drink {
+    animation:
+            animate-shake-drink 1.5s linear 3;
+    animation-fill-mode: forwards;
+}
+.animate-drink-drink {
+    animation:
+            animate-drink-drink 1.5s linear 1;
+    animation-fill-mode: forwards;
+}
+.animate-whale-tail {
+    animation:
+            animate-whale-tail 4s linear infinite;
+    animation-fill-mode: both;
+}
+.animate-whale-head {
+    animation:
+            animate-whale-head 4s linear infinite;
+    animation-fill-mode: both;
+}
+
+/********************* Crab, Manatee, Beach ball ******************/
+.left-patch {
+    height: 65vh;
+    opacity: 1;
+    z-index: 20;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    height: 40%;
+}
+.crab {
+    height: 12%;
+    width: 12%;
+    z-index: 6;
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    left: -7%;
+}
+.beach-ball {
+    height: 22%;
+    width: 22%;
+    z-index: 7;
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+}
+.manatee {
+    opacity: 1;
+    z-index: 2;
+    bottom: 5%;
+    left: 30%;
+    width: 20%;
+    height: 25%;
+    position: absolute;
+}
+@keyframes animate-crab {
+    0% {opacity: 1;}
+    35% {transform: translate(35vw, -6vh);}
+    60% {transform: scale(.9) translate(60vw, -10vh);}
+    80% {transform: scale(.7) translate(90vw, -15vh);}
+    81% {z-index: 8;
+        transform: scale(.9) translate(70vw, -5vh);
+    }
+    90% {z-index: 8;
+        transform: scale(.85) translate(90vw, -8vh);
+    }
+    99% {opacity: 1;
+        transform: scale(.55) translate(180vw, -44vh);}
+    100% {opacity: 0;
+        transform: scale(.55) translate(200vw, -44vh);}
+}
+@keyframes move-beach-ball {
+    0% {opacity: 1;}
+    35% {transform: translate(35vw, -6vh);}
+    60% {transform: scale(.9) translate(58vw, -10vh);}
+    80% {transform: scale(.7) translate(84vw, -15vh);}
+    100% {opacity: 1;
+        z-index: 20;
+        transform: scale(.7) translate(84vw, -15vh);}
+}
+@keyframes throw-beach-ball {
+    0% {opacity: 1;
+        transform: scale(.7) translate(84vw, -15vh);}
+    50% {transform: scale(.4) translate(85vw, -100vh);}
+    99% {opacity: 1;
+        transform: scale(6) translate(7vw, -10vh);}
+    100% {opacity: 0;
+        transform: scale(10) translate(7vw, -10vh); }
+}
+@keyframes animate-manatee {
+    0% {opacity: 1;
+        transform: translate(0, 0);}
+    49% {transform: scale(1) translate(0, -18vh);}
+    50% {transform: scale(1.2) translate(0, -20vh);}
+    100% {opacity: 1;
+        transform: scale(1) translate(0, 0);}
+}
+
+.animate-crab {
+    animation:
+            animate-crab 6s linear 1;
+    animation-fill-mode: forwards;
+}
+.move-beach-ball {
+    animation:
+            move-beach-ball 6s linear 1;
+    animation-fill-mode: forwards;
+}
+
+.animate-manatee {
+    animation:
+            animate-manatee 3s linear infinite;
+    animation-fill-mode: forwards;
+}
+.throw-beach-ball {
+    animation:
+            throw-beach-ball 3s linear infinite;
+    animation-fill-mode: forwards;
+}

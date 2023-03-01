@@ -1,0 +1,176 @@
+/********************* Sails ******************/
+@keyframes animate-sail {
+    100% {
+        transform: matrix( 0.99,0.08,-0.08,0.99,0,0);
+    }
+}
+
+@keyframes clickable-sail {
+    100% {
+        transform: scale(1.3);
+    }
+}
+
+.clickable-sail {
+    animation:
+            clickable-sail 4s ease-in-out infinite alternate,
+            animate-sail 4s ease-in-out infinite alternate,
+            animate-ship 2s ease-in-out infinite alternate;
+}
+.non-clickable-sail {
+    animation:
+            animate-sail 4s ease-in-out infinite alternate,
+            animate-ship 2s ease-in-out infinite alternate;
+}
+
+/********** Front Row /Row 1 **********/
+.sail {
+    font-family: "Castellar";
+    text-align: center;
+    position: absolute;
+    color: rgb(128, 102, 58);
+    text-shadow: -0.5625em 0.375em 0.1875em rgba(150,170,182,0.91);
+    font-size: 2.5vw;
+}
+
+.sail1 {
+    left: 46.5vw;
+    bottom: 47.852vh;
+    width: 7vw;
+    height: 5.944vh;
+    animation-delay: 0s, 0s;
+    pointer-events: none;
+    z-index: 89;
+}
+.sail2 {
+    left: 45vw;
+    bottom: 39.537vh;
+    width: 12.708vw;
+    height: 8.148vh;
+    z-index: 90;
+}
+.passages {
+    font-size: 0.8em;
+    line-height: 1.2;
+    transform: perspective(2.344vw) skew(15deg, 5deg);
+    padding-top: 0.926vh;
+    padding-left: 2vw;
+    position: absolute;
+}
+.sail3 {
+    left: 42.865vw;
+    bottom: 27.963vh;
+    width: 19.146vw;
+    height: 13.333vh;
+    z-index: 91;
+}
+.bluepillar {
+    transform: perspective(4.167vw) skew(10deg, 5deg);
+    padding-top: 1vh;
+    padding-left: 2.2vw;
+    width: 15.625vw;
+    position: absolute;
+}
+.sail4 {
+    left: 42.396vw;
+    bottom: 8.685vh;
+    width: 23.531vw;
+    height: 19.741vh;
+    z-index: 92;
+}
+.amazon {
+    font-size: 1.5em;
+    line-height: 1.2;
+    transform: perspective(2.344vw) skew(25deg, 5deg);
+    width: 22.531vw;
+    top: 2vh; 
+    position: absolute;
+}
+
+/********** Row 2 **********/
+.sail5 {
+    left: 27.833vw;
+    bottom: 49.259vh;
+    width: 9.729vw;
+    height: 7.519vh;
+    z-index: 84;
+    pointer-events: none;
+}
+.sail6 {
+    left: 27.104vw;
+    bottom: 37.722vh;
+    width: 14.542vw;
+    height: 11.741vh;
+    z-index: 85;
+}
+.cerner {
+    z-index: 33;
+    transform: perspective(60.427vw) skew(5deg, 4deg);
+    padding-top: 1.944vh;
+    position: absolute;
+    padding-left: 1.5vw;
+}
+.sail7 {
+    left: 25.115vw;
+    bottom: 24.019vh;
+    width: 18.729vw;
+    height: 14.537vh;
+    z-index: 86;
+}
+.forum {
+    font-size: 1.2em;
+    line-height: 1.2;
+    z-index: 31;
+    transform: perspective(300vw) skew(18deg, 4deg);
+    padding-top: 2.407vh;
+    padding-left: 3.99vw;
+    position: absolute;
+}
+.sail8 {
+    left: 26.219vw;
+    bottom: 7.333vh;
+    width: 18.948vw;
+    height: 17.537vh;
+    z-index: 87;
+}
+.personal {
+    line-height: 1.2;
+    font-size: 2.8vw;
+    padding-top: 0.926vh;
+    transform: perspective(54.427vw) skew(5deg, 4deg);
+    padding-top: 3.704vh;
+    padding-left: 2.5vw;
+    position: absolute;
+}
+/********** Row 3 **********/
+.sail9 {
+    left: 16.823vw;
+    bottom: 41.463vh;
+    width: 6.125vw;
+    height: 6.241vh;
+    z-index: 80;
+}
+.sail10 {
+    left: 12.896vw;
+    bottom: 31.981vh;
+    width: 13.677vw;
+    height: 10.056vh;
+    z-index: 81;
+    pointer-events: none;
+}
+.sail11 {
+    left: 9.083vw;
+    bottom: 18.296vh;
+    width: 21.542vw;
+    height: 15.352vh;
+    z-index: 82;
+}
+.campfire {
+    font-size: 1.3em;
+    transform: perspective(54.427vw) skew(-18deg, 5deg);
+    padding-top: 0.926vh;
+    padding-left: 1.406vw;
+    position: absolute;
+    padding-right: 2vw;
+    z-index: 83;
+}

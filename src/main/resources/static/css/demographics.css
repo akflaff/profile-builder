@@ -1,0 +1,64 @@
+.map-wrap {
+    position: relative;
+    right: 0.729vw;
+    width: 52%;
+    float: right;
+}
+
+.chart-wrap {
+    width: 40vw;
+    position: relative;
+    display: inline-block;
+    padding-top: 1.852vh;
+}
+
+.chart-title {
+    font-size: 0.75em;
+    color: rgb(128, 102, 58);
+    line-height: 1.2;
+    position: relative;
+    display: block;
+    z-index: 13;
+    padding-right: 0.260vw;
+    font-family: "Castellar";
+    padding-left: 5.208vw;
+    padding-top: 0.463vh;
+}
+
+.heading {
+    font-size: 1.375em;
+    color: rgb(128, 102, 58);
+    line-height: 1.2;
+    text-align: center;
+    left: 40.469vw;
+    top: 14.074vh;
+    z-index: 17;
+    font-weight: 600;
+    padding: 0.260vw;
+    font-family: "Castellar";
+}
+
+.sub-heading {
+    font-size: 1.25em;
+    color: rgb(128, 102, 58);
+    line-height: 1.2;
+    text-align: center;
+    position: relative;
+    z-index: 16;
+    font-weight: 600;
+    padding-bottom: 0.926vh;
+}
+
+.label {
+    font-size: 1em;
+    color: rgb(128, 102, 58);
+    line-height: 1.2;
+    position: relative;
+    z-index: 13;
+    padding-right: 0.260vw;
+    font-family: "Castellar";
+}
+
+.section {
+    padding: 0.260vw;
+}

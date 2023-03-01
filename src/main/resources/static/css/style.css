@@ -1,0 +1,148 @@
+img {
+    width: 100%;
+    height: 100%;
+}
+.point:hover {
+    cursor: grab;
+}
+/********************* Navigation ******************/
+.nav {
+    z-index: 100;
+    overflow: hidden;
+    opacity: 0;
+    font-size: 0;
+    text-align: center;
+    position: relative;
+}
+.t-nav {
+    height: 14vh;
+    width: 16vw;
+    display: inline-block;
+    z-index: 100;
+    position: relative;
+}
+.r-nav {
+    height: 15vh;
+    width: 5vw;
+    position: relative;
+    z-index: 100;
+}
+.right-nav {
+    position: absolute;
+    right: 1vw;
+
+}
+@keyframes animate-navigation {
+    100% {
+        opacity: 1;
+    }
+}
+.animate-top-navigation {
+    -webkit-animation:
+            animate-navigation 5s linear 1,
+            nav-up-down 3s ease-in-out infinite alternate;
+            animation:
+            animate-navigation 5s linear 1,
+            nav-up-down 3s ease-in-out infinite alternate;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+
+
+.animate-right-navigation {
+    -webkit-animation:
+            animate-navigation 5s linear 1,
+            nav-right-left 3s ease-in-out infinite alternate;
+            animation:
+            animate-navigation 5s linear 1,
+            nav-right-left 3s ease-in-out infinite alternate;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+
+@keyframes nav-up-down {
+    0% {
+        top: 0vh;
+    }
+    50% {
+        top: 3.056vh;
+    }
+    100% {
+        top: -1.111vh;
+    }
+}
+
+@keyframes nav-right-left {
+    0% {
+        right: 0vh;
+    }
+    50% {
+        right: 1.719vw;
+    }
+    100% {
+        right: -0.625vw;
+    }
+}
+
+.legend {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 31%;
+    padding-bottom: 1.852vh;
+    padding-left: 0.781vw;
+}
+.close-icon {
+    position: absolute;
+    right: 0.521vw;
+    top: 0.926vh;
+}
+.close-icon:hover {
+    cursor: pointer;
+}
+
+/********************* Info ******************/
+.info {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.926vh;
+    padding-left: 0.260vw;
+    color: rgb(128, 102, 58);
+}
+
+.info .info-text {
+    visibility: hidden;
+    width: 14.323vw;
+    height: 14.323vw;
+    background-color: rgb(128, 102, 58);
+    color: #fff;
+    text-align: center;
+    padding: 0.781vw 0.781vw;
+    border-radius: 2.344vw;
+
+    /* positioning */
+    position: absolute;
+    margin-left: 1.042vw;
+    top: -6.019vh;
+
+    z-index: 30;
+}
+
+/* Arrow */
+.info .info-text::after {
+    content: "";
+    position: absolute;
+    top: 45%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -0.463vh;
+    border-width: 0.521vw;
+    border-style: solid;
+    border-color: transparent rgb(128, 102, 58) transparent transparent;
+}
+
+.info:hover {
+    cursor: help;
+}
+.info:hover .info-text {
+    visibility: visible;
+}

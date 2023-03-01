@@ -1,0 +1,192 @@
+/********************* Map ******************/
+@keyframes show-map {
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        z-index: 5;
+    }
+}
+@keyframes hide-map {
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+.show-map {
+    animation:
+            show-map 1.5s linear 1;
+    animation-fill-mode: forwards;
+}
+.hide-map {
+    animation:
+            hide-map 1.5s linear 1;
+    animation-fill-mode: forwards;
+}
+.map {
+    position: absolute;
+    right: 0;
+    top: 5vh;
+    width: 47.094vw;
+    height: 38.537vh;
+    transform: scale(0);
+    opacity: 0;
+    z-index: 11;
+}
+
+/********************* Clouds ******************/
+@keyframes animate-cloud {
+    0% {
+        margin-left:-0.260vw;
+    }
+    100% {
+        margin-left: 0.260vw;
+    }
+}
+@keyframes cloud-part {
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+@keyframes cloud-close {
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.cloud {
+    position: absolute;
+    content: "";
+    animation:
+            animate-cloud 5s ease-in-out infinite alternate;
+}
+.cloud::before {
+    position: absolute;
+    content: "";
+    box-shadow: inset -1.4375em 0.9375em 5.8125em -1.875em #fff;
+    border-radius: 54%;
+    top: 43%;
+    left: -80%;
+    width: 851%;
+    height: 48%;
+    -webkit-filter: blur(0.3125rem);
+    filter: blur(0.3125rem);
+    z-index: 1;
+}
+
+.cloud::after {
+    position: absolute;
+    content: "";
+    box-shadow: -0.625em 0.9375em 8em -4.6875em #fff;
+    border-radius: 24%;
+    top: 17%;
+    left: 50%;
+    width: 26%;
+    height: 41%;
+    background: radial-gradient(circle at 100%, #fff, rgba(217, 236, 239, 0.5) 28%);
+    -webkit-filter: blur(0.3125rem);
+    filter: blur(0.625em);
+    z-index: 10;
+}
+.cloud-part {
+    animation:
+            cloud-part 1.5s linear 1;
+    animation-fill-mode: forwards;
+}
+.cloud-close {
+    animation:
+            cloud-part 1.5s linear 1;
+    animation-fill-mode: forwards;
+}
+.cloud1 {
+    opacity: 0.878;
+    position: absolute;
+    left: 75%;
+    top: 27%;
+    width: 21.823vw;
+    height: 17.963vh;
+    animation-delay: 0s;
+    z-index: 10;
+}
+.cloud2 {
+    opacity: 0.88;
+    position: absolute;
+    left: 70%;
+    top: 0%;
+    width: 25.104vw;
+    height: 19.167vh;
+    animation-delay: 0.3s;
+    scale: 1.1;
+    z-index: 1;
+}
+.cloud3 {
+    opacity: 0.851;
+    position: absolute;
+    left: 53%;
+    top: 18%;
+    width: 26.250vw;
+    height: 24.444vh;
+    animation-delay:.1s;
+    z-index: 8;
+}
+.cloud4 {
+    position: absolute;
+    left: 13%;
+    top: 5%;
+    width: 28.958vw;
+    height: 16.111vh;
+    animation-delay: 0.6s;
+    opacity: 0.85;
+    z-index: 2;
+}
+.cloud5 {
+    opacity: 0.8;
+    position: absolute;
+    left: 41%;
+    top: 5%;
+    width: 25.573vw;
+    height: 21.759vh;
+    animation-delay: 0.15s;
+    z-index: 4;
+}
+.cloud6 {
+    opacity: 0.859;
+    position: absolute;
+    left: 13%;
+    top: 20%;
+    width: 27.292vw;
+    height: 20.093vh;
+    animation-delay: 0.27s;
+    z-index: 4;
+}
+.cloud7 {
+    opacity: 0.769;
+    position: absolute;
+    left: -1%;
+    top: 11%;
+    width: 21.823vw;
+    height: 17.963vh;
+    animation-delay: 0.39s;
+    z-index: 4;
+}
+.cloud8 {
+    opacity: 0.91;
+    position: absolute;
+    left: 1%;
+    top: 29%;
+    width: 21.615vw;
+    height: 16.944vh;
+    animation-delay: 0.61s;
+    z-index: 3;
+}
+.cloud9 {
+    opacity: 0.851;
+    position: absolute;
+    left: 87%;
+    top: 13%;
+    width: 27.448vw;
+    height: 20vh;
+    animation-delay: 0.11s;
+    scale: 1.2;
+    z-index: 2;
+}

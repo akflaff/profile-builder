@@ -1,0 +1,336 @@
+.seahorse-group {
+    right: -8.958vMin;
+    top: 2vMin;
+    position: absolute;
+    padding-bottom: 6.944vMin;
+    z-index: 25;
+    max-width: 35vw;
+    max-height: 90vh;
+}
+.seahorse {
+    right: 0.042vMin;
+    top: 17vMin;
+    position: absolute;
+    z-index: -5;
+}
+
+.goldfish-group {
+    right: -1vMin;
+    bottom: 5.852vMin;
+    position: absolute;
+    animation-delay: .23s;
+    z-index: 40;
+    max-width: 35vw;
+    max-height: 90vh;
+}
+.goldfish {
+    right: -1vMin;
+    bottom: 5.852vMin;
+}
+.left-fish-group {
+    left: -3.302vMin;
+    bottom: -4vh;
+    position: absolute;
+    animation-delay: .23s;
+    z-index: 25;
+    max-width: 35vw;
+    max-height: 90vh;
+}
+.left-fish {
+     left: -3.302vMin;
+    bottom: 15vh;
+     position: absolute;
+     z-index: -5;
+ }
+.jellyfish-group {
+    position: absolute;
+    opacity: .1;
+    right: 18.229vw;
+    top: 6.481vh;
+    animation-delay: .38s;
+    z-index: 0;
+    max-width: 35vw;
+    max-height: 90vh;
+}
+.jellyfish {
+    right: 18.229vMin;
+    top: 6.481vMin;
+    z-index: 0;
+}
+.starfish-group {
+    position: absolute;
+    opacity: .18;
+    animation-delay: .4s;
+    left: 20.708vMin;
+    top: 7.278vMin;
+    z-index: 45;
+    max-width: 35vw;
+    max-height: 90vh;
+}
+.starfish {
+    left: 17.708vMin;
+    top: 15.278vMin;
+    z-index: 0;
+}
+/************** perspective **************/
+.front {
+    /*! z-index: 0; */
+    perspective: 0cm;
+}
+.back {
+    z-index: -5;
+    perspective: 200cm;
+}
+.hidden {
+    opacity:0;
+    pointer-events: none;
+    z-index: -50;
+}
+.animal {
+    z-index: -4;
+    opacity: 0;
+    position: absolute;
+    transform: scale(0);
+}
+
+/************** Poke **************/
+@keyframes animate-poke {
+    50% {
+        transform: rotate(3deg) skewx(1.5deg) skewy(-.8deg);
+    }
+    100% {
+        transform: rotate(1deg) skewx(-1.5deg) skewy(1deg);
+    }
+}
+.animate-poke {
+    animation:
+            animate-poke .25s ease-in-out infinite alternate;
+    animation-fill-mode: forwards;
+}
+
+/**************  Seaweed **************/
+@keyframes sway {
+    0% {
+        transform: translateY(0.104vw) rotate(-1deg) skewy(-1deg);
+    }
+    100% {
+        transform: translateY(-0.104vw) rotate(1deg) skewy(1deg);
+    }
+}
+
+.sway {
+    animation:
+            sway 3s ease-in-out infinite alternate;
+}
+
+/**************  Animal **************/
+@keyframes swim-right-up {
+    100% {
+        left: 119.792vw;
+        bottom: 92.593vh;
+    }
+}
+@keyframes swim-left-up {
+    100% {
+        right: 78.125vw;
+        bottom: 111.111vh;
+    }
+}
+@keyframes swim-right-down {
+    100% {
+        left: 119.792vw;
+        top: 92.593vh;
+    }
+}
+@keyframes swim-left-down {
+    100% {
+        right: 78.125vw;
+        top: 111.111vh;
+    }
+}
+@keyframes up-down-animal {
+    100% {
+        padding-bottom: 3.056vh;
+    }
+}
+/* Multiple frames to ensure scale gets smaller during the entire animation */
+@keyframes animate-animal {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(7deg) skew(-10deg,-3deg) translateY(1.042vw);
+    }
+    20% {
+        opacity: .8;
+        transform: scale(1) rotate(-7deg) skew(10deg, 5deg);
+    }
+    40% {
+        opacity: .6;
+        transform: scale(0.6) rotate(7deg) skew(-10deg,-3deg) translateY(1.042vw);
+    }
+    60% {
+        opacity: .4;
+        transform: scale(0.4) rotate(-7deg) skew(10deg, 5deg);
+    }
+    80% {
+        opacity: .2;
+        transform: scale(0.2) rotate(7deg) skew(-10deg,-3deg) translateY(1.042vw);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(.1) rotate(-7deg) skew(10deg, 5deg);
+    }
+}
+
+/************** Seahorse **************/
+.animate-seahorse {
+    animation:
+            up-down-animal .5s ease-in-out infinite alternate,
+            animate-animal 5s linear 1,
+            swim-left-up 5s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+
+/************** Left Fish **************/
+.animate-left-fish {
+    animation:
+            up-down-animal .5s ease-in-out infinite alternate,
+            animate-animal 5s linear 1,
+            swim-right-up 5s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+
+/************** Goldfish **************/
+.goldfish-group.front{
+    opacity: 0.85;
+}
+.goldfish-group.back{
+    opacity: 0.55;
+}
+
+.animate-goldfish {
+    animation:
+            up-down-animal .5s ease-in-out infinite alternate,
+            animate-animal 5s linear 1,
+            swim-left-up 5s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+
+/************** Jellyfish **************/
+.animate-jellyfish {
+    animation:
+            up-down-animal .5s ease-in-out infinite alternate,
+            animate-jellyfish 5s linear 1,
+            swim-left-down 5s ease-in-out 1,
+            disappear 5s linear 1;
+    animation-fill-mode: forwards;
+}
+/* Multiple frames to ensure scale gets smaller during the entire animation */
+@keyframes animate-jellyfish {
+    0% {
+        opacity: .2;
+        transform: scale(.2) rotate(3deg) skew(-10deg) translateY(1.042vw);
+    }
+    20% {
+        opacity: .4;
+        transform: scale(.4) rotate(-3deg) skew(30deg, 10deg);
+    }
+    40% {
+        opacity: .6;
+        transform: scale(1) rotate(3deg) skew(-20deg) translateY(1.042vw);
+    }
+    60% {
+        opacity: .4;
+        transform: scale(0.4) rotate(-3deg) skew(40deg, 20deg);
+    }
+    80% {
+        opacity: .2;
+        transform: scale(0.2) rotate(3deg) skew(-20deg) translateY(1.042vw);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(.1) rotate(-3deg) skew(40deg, 20deg);
+    }
+}
+/************** Starfish **************/
+.animate-starfish {
+    animation:
+            up-down-animal .5s ease-in-out infinite alternate,
+            animate-starfish 5s linear 1,
+            swim-left-down 5s ease-in-out 1,
+            disappear 5s linear 1;
+    animation-fill-mode: forwards;
+}
+/* Multiple frames to ensure scale gets smaller during the entire animation */
+@keyframes animate-starfish {
+    0% {
+        opacity: .2;
+        transform: scale(.2, .3) rotate(3deg) skew(-10deg, 10deg) translateY(1.042vw);
+    }
+    20% {
+        opacity: .4;
+        transform: scale(.4, .2) rotate(-3deg) skew(30deg, -10deg);
+    }
+    40% {
+        opacity: .6;
+        transform: scale(1, 1) rotate(3deg) skew(-20deg, 10deg) translateY(1.042vw);
+    }
+    60% {
+        opacity: .4;
+        transform: scale(0.4, .5) rotate(2deg) skew(30deg, -15deg);
+    }
+    80% {
+        opacity: .2;
+        transform: scale(0.2, .1) rotate(10deg) skew(-20deg, 10deg) translateY(1.042vw);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(.1, .3) rotate(0deg) skew(40deg, -20deg);
+    }
+}
+
+/************** Seaweed **************/
+.s1 {
+    z-index: -4;
+    opacity: .09;
+    position: absolute;
+    height:35vMin;
+    right: 23vMin;
+    bottom: 35vMin;
+    width: 2vMin;
+}
+.s2 {
+    z-index: -4;
+    opacity: .25;
+    position: absolute;
+    height:25vMin;
+    left: 15vMin;
+    bottom: 25vMin;
+    width: 2vMin;
+}
+.s3 {
+    z-index: -4;
+    opacity: .21;
+    position: absolute;
+    height:20vMin;
+    left: 32vMin;
+    top: 35vMin;
+    width: 2vMin;
+}
+.s4 {
+    z-index: -4;
+    opacity: .17;
+    position: absolute;
+    height:5vMin;
+    right: 20vMin;
+    top: 15vMin;
+    width: 2vMin;
+}
+.s5 {
+    z-index: -4;
+    opacity: .13;
+    position: absolute;
+    height:35vMin;
+    right: 5vMin;
+    top: 7vMin;
+    width: 2vMin;
+}
